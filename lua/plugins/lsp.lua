@@ -32,6 +32,18 @@ return {
             lspconfig.omnisharp.setup({
                 capabilities = capabilities,
             })
+            lspconfig.ruff_lsp.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.pyright.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.qmlls.setup {
+                cmd = { "pyside6-qmlls" },
+                filetypes = { "qmljs", "qml" },
+                capabilities = capabilities,
+                on_attach = on_attach
+            }
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

@@ -14,6 +14,7 @@ return {
 				"heex",
 				"javascript",
 				"html",
+                "qmljs",
 			},
 			auto_install = true,
 			highlight = { enable = true },
