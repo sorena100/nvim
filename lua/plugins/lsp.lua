@@ -13,7 +13,7 @@ return {
         },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "rust_analyzer" },
+                ensure_installed = { "lua_ls", "rust_analyzer", "gopls" },
             })
         end,
     },
@@ -38,12 +38,19 @@ return {
             lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
-            lspconfig.qmlls.setup {
+            lspconfig.qmlls.setup({
                 cmd = { "pyside6-qmlls" },
                 filetypes = { "qmljs", "qml" },
                 capabilities = capabilities,
                 on_attach = on_attach
-            }
+            })
+            lspconfig.gopls.setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+                cmd = { "gopls" },
+                filetypes = { "go", "gomod", "gowork",  "gotmpl" },
+                root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+            })
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
