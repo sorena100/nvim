@@ -10,6 +10,7 @@ return {
         "mfussenegger/nvim-dap-python",
         "nvim-telescope/telescope-dap.nvim",
         "jbyuki/one-small-step-for-vimkind",
+        "nvim-neotest/nvim-nio",
     },
     lazy=true,
     keys = {
