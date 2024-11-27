@@ -15,5 +15,5 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {}
 
-require("lazy").setup("plugins")
+require("lazy").setup("ali/plugins")
 
